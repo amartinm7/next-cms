@@ -9,9 +9,12 @@ cd nextjs-blog
 npm install --save-dev sass
 
 npm run dev
+
+# for closing all node apps
+killall -9 node
 ```
 
-### Setup scripts on the package.json 
+### Setup scripts on the package.json
 ````json
 "scripts": {
 "dev": "next dev",
@@ -23,6 +26,15 @@ npm run dev
 
 ### Setup linter
 run `npm run lint` or `npm lint` to generate the .eslintrc.json config file. Choose default options.
+```bash
+npm i eslint-config-prettier --save-dev
+```
+
+### setup type checker
+```bash
+npm i prop-types --save
+```
 
 ## index
 [01: Setup layout app](/_docs/01--setup-layout.md)
+[02: Setup cirrus.css styles](/_docs/02--setup-cirrus.css.md)

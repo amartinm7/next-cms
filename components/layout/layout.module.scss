@@ -1,9 +1,14 @@
 .main {
-  display: flex;
-  height: calc(100vh - 64px);
-  background-color: white;
-
-  section {
-    padding: 32px;
-  }
+  //align-content: center;
+  //@media (min-width: 400px) {
+  //  height: calc(100vh - 64px);
+  //  display:flex;
+  //}
+  //background-color: aqua;
+  //
+  //section {
+  //  @media (min-width: 400px) {
+  //    padding: 32px;
+  //  }
+  //}
 }

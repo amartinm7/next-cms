@@ -1,5 +1,6 @@
 import Layout from '../components/layout/layout.js'
 import Sidebar from '../components/layout/sideBar.js'
+import Card from '../components/card/index.js'
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <p>
         This example adds a property <code>getLayout</code> to your page,
         allowing you to return a React component for the layout. This allows you
+        {/* eslint-disable-next-line react/no-unescaped-entities */}
         to define the layout on a per-page basis. Since we're returning a
         function, we can have complex nested layouts if desired.
       </p>
@@ -28,6 +30,7 @@ export default function Home() {
         <code>Sidebar</code> and then changing routes. You'll notice the input
         state is persisted.
       </p>
+      <Card></Card>
     </section>
   )
 }

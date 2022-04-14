@@ -1,11 +1,12 @@
 import Head from 'next/head'
+import Image from 'next/image'
 
 export default function Help() {
   return (
     <div className="container">
       <Head>
         <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href={"/favicon.ico"} />
       </Head>
       <main>
         <h1 className="title">
@@ -54,7 +55,7 @@ export default function Help() {
           rel="noopener noreferrer"
         >
           Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className="logo" />
+          <Image src={"/vercel.svg"} alt={"Vercel"} className="logo" />
         </a>
       </footer>
 
