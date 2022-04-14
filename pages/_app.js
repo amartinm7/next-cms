@@ -1,5 +1,3 @@
-import './index.scss'
-
 import 'cirrus-ui'
 
 export default function MyApp({ Component, pageProps }) {

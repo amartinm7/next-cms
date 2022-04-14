@@ -1,6 +1,9 @@
 This is a starter template for [Learn Next.js](https://nextjs.org/learn).
 
-# Create next-js app from the scratch
+### Create next-js app from the scratch on vercel using a nextjs template
+https://vercel.com/new/clone
+
+### Create next-js app from the scratch
 ```bash
 npx create-next-app nextjs-blog --use-npm --example "https://github.com/vercel/next-learn/tree/master/basics/learn-starter"
 
