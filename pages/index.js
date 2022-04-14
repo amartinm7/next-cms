@@ -9,8 +9,7 @@ export default function Home() {
       <p>
         This example adds a property <code>getLayout</code> to your page,
         allowing you to return a React component for the layout. This allows you
-        {/* eslint-disable-next-line react/no-unescaped-entities */}
-        to define the layout on a per-page basis. Since we're returning a
+        to define the layout on a per-page basis. Since we are returning a
         function, we can have complex nested layouts if desired.
       </p>
       <p>
@@ -27,10 +26,10 @@ export default function Home() {
       <h3>Try It Out</h3>
       <p>
         To visualize this, try tying in the search input in the{' '}
-        <code>Sidebar</code> and then changing routes. You'll notice the input
+        <code>Sidebar</code> and then changing routes. You will notice the input
         state is persisted.
       </p>
-      <Card></Card>
+      <Card/>
     </section>
   )
 }
