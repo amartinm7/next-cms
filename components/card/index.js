@@ -5,17 +5,16 @@ import Image from 'next/image'
 const baseClass = styles['ech-card']
 const imageClass = styles['ech-card-image']
 
-
 const Card = ({}) => {
   return (
     <div className={baseClass}>
           <Image src={"https://image.tmdb.org/t/p/w500/1HXBUVLacdJhJz0rYGz71qrczMM.jpg"}
-                 alt={"heyyy"} className={imageClass}
-                 layout="fill" objectFit="cover"/>
+                 alt={"image"} className={imageClass}
+                 layout="fill" objectFit="cover" priority={true}/>
     </div>
   )
 }
-Card.displayName = 'AdResume'
+Card.displayName = 'Card'
 Card.propTypes = {
   // background: PropTypes.object,
   // education: PropTypes.object,
