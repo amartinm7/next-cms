@@ -26,7 +26,7 @@ export default function Home() {
         <div className="modal-content" role="document">
           <div className="modal-header">
             <a href="#components" className="u-pull-right" aria-label="Close">
-              <span className="icon">
+              <span className="icon" style={{ width: "15px", height: "15px" }}>
                 <svg
                   aria-hidden="true"
                   focusable="false"
