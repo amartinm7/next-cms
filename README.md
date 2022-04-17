@@ -40,4 +40,4 @@ npm i prop-types --save
 
 ## index
 [01: Setup layout app](/_docs/01--setup-layout.md)
-[02: Setup cirrus.css styles](/_docs/02--setup-cirrus.css.md)
+[02: Setup tailwind.css styles](/_docs/02--setup-tailwind.css.md)
