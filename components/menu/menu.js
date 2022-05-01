@@ -1,15 +1,13 @@
 import PropTypes from "prop-types";
-import styles from "./index.module.scss";
+import styles from "./menu.module.scss";
 import { useState } from "react";
 import cx from "classnames";
-
-// const baseClass = styles["ech-menu"];
 
 const Menu = ({}) => {
   const [showMenu, setShowMenu] = useState(false);
   const [myStyle, setMyStyle] = useState({ display: "none" });
-  const menuClassName = cx("menu", {
-    "open-menu": showMenu,
+  const menuClassName = cx(styles["ech-logo"], {
+    [styles["ech-open-menu"]]: showMenu,
   });
 
   function toogleMenu() {
@@ -17,15 +15,15 @@ const Menu = ({}) => {
   }
 
   return (
-    <header>
-      <div className={"logo"}>
+    <header className={styles["ech-header-container"]}>
+      <div>
         <a href="#">
           <span>Shoe</span>
           <span>Land</span>
         </a>
       </div>
       <nav className={menuClassName}>
-        <span className={"closeIcon"} onClick={toogleMenu}>
+        <span className={styles["ech-close-icon"]} onClick={toogleMenu}>
           <svg
             aria-hidden="true"
             focusable="false"
@@ -48,7 +46,7 @@ const Menu = ({}) => {
           <li>four</li>
         </ul>
       </nav>
-      <span className={"menuIcon"} onClick={toogleMenu}>
+      <span className={styles["ech-menu-icon"]} onClick={toogleMenu}>
         <svg
           aria-hidden="true"
           focusable="false"
