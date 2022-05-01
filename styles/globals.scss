@@ -1,4 +1,5 @@
-@use "cirrus-ui/src/cirrus-all" as *;
+@use '_reset';
+
 
 body {
   margin: 1.5em;
@@ -12,64 +13,4 @@ a {
 
 .container {
   // margin-top: .5em
-}
-
-header {
-  //position: fixed; //do sticky
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  flex-direction: row;
-
-  div.logo {
-    left: 0;
-    top: 0;
-  }
-
-  nav.menu {
-    position: fixed;
-    right: 0;
-    top: 0;
-    background: aquamarine;
-    width: 50%;
-    height: 100vh;
-    z-index: 999;
-    text-transform: uppercase;
-    transform: translateX(100%);
-    transition: transform .5s ease-in-out;
-
-    span.closeIcon {
-      float: right;
-      margin: 2em;
-      z-index: 999;
-      svg {
-        width: 1.5em;
-        margin-top: -.6em;
-        cursor: pointer;
-      }
-    }
-
-    ul {
-      list-style-type: none;
-      padding: 0;
-      margin-top: 8em;
-      li{
-        color: #333333;
-        padding: .75em 2em;
-        display: block;
-        &:hover {
-          background: gray;
-        }
-      }
-    }
-  }
-
-  nav.open-menu {
-    transform: translateX(0);
-  }
-
-  span.menuIcon {
-    width: 20px;
-    height: 20px;
-  }
 }
