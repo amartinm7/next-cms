@@ -8,7 +8,7 @@
 }
 
 .ech-span {
-  background-image: url('/icon.svg') ;
+  background-image: url('/icon.svg');
   float: right;
   width: 100%;
   height: 100vh;
@@ -30,11 +30,11 @@
   height: 100vh;
   z-index: -1;
   overflow: hidden;
-  @media screen and (min-width: 500px){
-      background-image: url('https://wallpapercave.com/wp/QQhylFV.jpg');
+  @media screen and (min-width: 500px) {
+    background-image: url('https://wallpapercave.com/wp/QQhylFV.jpg');
   }
 
-  @media screen and (min-width: 1000px){
+  @media screen and (min-width: 1000px) {
     background-image: url('https://ying2rmradev.merlincdn.net/i/l/001/0014126_torres-turuncu-parcali-bagcik-detayli-gold-kadin-spor-ayakkabi.jpeg');
   }
 }
@@ -44,14 +44,18 @@
   top: 0;
   left: 0;
   background: url("https://image.tmdb.org/t/p/w500/1HXBUVLacdJhJz0rYGz71qrczMM.jpg") no-repeat;
-  background-size: contain;
-  background-position-x: 20%;
-  background-position-y: 20%;
+  background-size: cover;
+  //background-position-x: 20%;
+  //background-position-y: 30%;
   width: 100%;
   height: 100vh;
   z-index: -1;
   overflow: hidden;
-  @media screen and (min-width: 650px){
+  @media screen and (min-width: 650px) {
     background-image: url('https://image.tmdb.org/t/p/original/1uegR4uAxRxiMyX4nQnpzbXhrTw.jpg');
   }
+}
+
+.ech-container {
+  padding-top: 10%;
 }
