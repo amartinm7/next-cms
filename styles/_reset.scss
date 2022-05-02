@@ -11,7 +11,7 @@ https://github.com/eduardofierropro/Reset-CSS/blob/main/scss/_reset.scss
 
 /* Aquí definimos las Custom properties */
 :root{
-  --negro         : #393939;
+  --negro         : #ffffff;
 
   /* Tipografía */
   --tipo-principal   : Helvetica, Arial, sans-serif;
@@ -21,7 +21,7 @@ https://github.com/eduardofierropro/Reset-CSS/blob/main/scss/_reset.scss
 /* Las adaptamos al modo oscuro */
 @media (prefers-color-scheme: dark) {
   :root{
-    --negro         : #ececec;
+    --negro         : #000000;
   }
 }
 
@@ -132,6 +132,7 @@ svg{
 } */
 /* Configuramos la tipografía para toda la web */
 body {
+  min-width: 375px;
   min-height  : 100vh;
   font-size   : 100%;
   font-family : var(--tipo-principal);

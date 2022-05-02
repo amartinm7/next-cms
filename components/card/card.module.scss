@@ -1,13 +1,8 @@
+@use '../../styles/variables';
+
 .ech-card {
-  width: 353px;
-  height: 530px;
-  aspect-ratio: 2/3;
-  position: relative;
-  border-radius: 25px;
-  margin: 20px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: variables.$margin-medium/2 variables.$margin-medium/2;
 }
 
 .ech-card-image {
-  border-radius: 25px;
 }

@@ -1,29 +1,22 @@
 import PropTypes from "prop-types";
 import styles from "./card.module.scss";
-import Image from "next/image";
+import CardImage from "./cardImage/cardImage";
 
-const baseClass = styles["ech-card"];
-const imageClass = styles["ech-card-image"];
-
-const Card = ({}) => {
+const Card = ({ imageSrc, title, year }) => {
   return (
-    <div className={baseClass}>
-      <Image
-        src={"https://image.tmdb.org/t/p/w500/1HXBUVLacdJhJz0rYGz71qrczMM.jpg"}
-        alt={"image"}
-        className={imageClass}
-        layout="fill"
-        objectFit="cover"
-        priority={true}
-      />
-    </div>
+    <article className={styles["ech-card"]}>
+      <CardImage imageSrc={imageSrc} alt={title} />
+      <footer>
+        <h2>{title}</h2>
+        <div>{year}</div>
+      </footer>
+    </article>
   );
 };
 Card.displayName = "Card";
 Card.propTypes = {
-  // background: PropTypes.object,
-  // education: PropTypes.object,
-  // languages: PropTypes.object,
-  // className: PropTypes.string
+  imageSrc: PropTypes.string,
+  title: PropTypes.string,
+  year: PropTypes.number,
 };
 export default Card;

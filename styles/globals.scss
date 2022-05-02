@@ -1,8 +1,9 @@
 @use '_reset';
-
+@use './mixins';
+@use './variables';
 
 body {
-  margin: 1.5em;
+  margin: variables.$margin-medium;
   // font-family: "Montserrat", sans-serif;
 }
 
@@ -13,4 +14,10 @@ a {
 
 .container {
   // margin-top: .5em
+}
+
+.example-class {
+  @include mixins.respond(phone) {
+    font-size: 14px;
+  }
 }
