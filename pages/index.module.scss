@@ -6,7 +6,8 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: inherit;
+  justify-content: space-evenly;
+  overflow: overlay;
 }
 
 .ech-span {

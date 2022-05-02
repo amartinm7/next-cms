@@ -25,9 +25,7 @@ export default function Home() {
       {/*<section className={styles["ech-hero"]}></section>*/}
       <section className={styles["ech-container"]}>
         This example adds a property <code>getLayout</code> to your page,
-        allowing you to return a React component for the layout. This allows you
-        to define the layout on a per-page basis. Since we are returning a
-        function, we can have complex nested layouts if desired.
+        allowing you to return a React component for the layout.
       </section>
       <section className={styles["ech-movies"]}>
         {array.map((item, index) => movie(index))}

@@ -19,8 +19,8 @@ const Menu = ({}) => {
     <header className={styles["ech-header-container"]}>
       <div>
         <a href="#">
-          <span>Shoe</span>
-          <span>Land</span>
+          <span>Estrenos</span>
+          <span>CineHoy</span>
         </a>
       </div>
       <nav className={menuClassName}>

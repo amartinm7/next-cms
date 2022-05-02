@@ -8,7 +8,7 @@ const Card = ({ imageSrc, title, year }) => {
       <CardImage imageSrc={imageSrc} alt={title} />
       <footer>
         <h2>{title}</h2>
-        <div>{year}</div>
+        <p>{year}</p>
       </footer>
     </article>
   );
