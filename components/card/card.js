@@ -8,7 +8,10 @@ const Card = ({ imageSrc, title, year }) => {
       <CardImage imageSrc={imageSrc} alt={title} />
       <footer>
         <h2>{title}</h2>
-        <p>{year}</p>
+        <p>
+          <span className={styles["ech-year"]}>{year}</span>
+          <i className="fa-regular fa-circle-play"></i>
+        </p>
       </footer>
     </article>
   );

@@ -1,6 +1,10 @@
 @use '_reset';
 @use './mixins';
 @use './variables';
+@import './fontawesome/scss/fontawesome.scss';
+@import './fontawesome/scss/regular.scss';
+@import './fontawesome/scss/solid.scss';
+@import './fontawesome/scss/brands.scss';
 
 body {
   margin: variables.$margin-medium;
@@ -23,5 +27,17 @@ div, section, footer, header {
 .example-class {
   @include mixins.respond(phone) {
     font-size: 14px;
+  }
+}
+
+// Example Solid style of user
+ech-icon {
+  @extend %fa-icon;
+  @extend .fa-regular;
+
+  &:after {
+    content: fa-content($fa-var-circle-play); // "\f144";
+    vertical-align: middle;
+    margin-left: 0.25em;
   }
 }
