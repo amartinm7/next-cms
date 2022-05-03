@@ -8,7 +8,7 @@ const cardInfo = {
   title: "Moon knight",
   year: 2022,
 };
-const array = [1, 2, 3, 4, 5];
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 const movie = (index) => (
   <Card
     key={index}
