@@ -16,6 +16,7 @@ const customJestConfig = {
     "^@/components/(.*)$": "<rootDir>/components/$1",
     "^@/domain/(.*)$": "<rootDir>/domain/$1",
   },
+  transform: { "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest" },
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
