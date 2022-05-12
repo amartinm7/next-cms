@@ -2,7 +2,7 @@ import Layout from "../components/layout/layout.js";
 import Card from "../components/card/card.js";
 import styles from "./index.module.scss";
 import Menu from "../components/menu/menu.js";
-import { BeanContainerRegistry } from "../domain/BeanContainerRegistry";
+import { BeanContainerRegistry } from "@/domain/BeanContainerRegistry";
 
 const cardInfo = {
   imageSrc: "https://image.tmdb.org/t/p/w500/1HXBUVLacdJhJz0rYGz71qrczMM.jpg",
