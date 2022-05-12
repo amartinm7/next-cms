@@ -5,12 +5,6 @@ import Menu from "../components/menu/menu.js";
 import { BeanContainerRegistry } from "@/domain/BeanContainerRegistry";
 import PropTypes from "prop-types";
 
-const cardInfo = {
-  imageSrc: "https://image.tmdb.org/t/p/w500/1HXBUVLacdJhJz0rYGz71qrczMM.jpg",
-  title: "Moon knight",
-  year: 2022,
-};
-const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 const getMovieCard = ({ item, index }) => (
   <Card
     key={index}
