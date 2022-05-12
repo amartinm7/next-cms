@@ -18,8 +18,8 @@ const Card = ({ imageSrc, title, year }) => {
 };
 Card.displayName = "Card";
 Card.propTypes = {
-  imageSrc: PropTypes.string,
-  title: PropTypes.string,
-  year: PropTypes.number,
+  imageSrc: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  year: PropTypes.string.isRequired,
 };
 export default Card;
