@@ -15,8 +15,8 @@ const getMovieCard = ({ item, index }) => (
   <Card
     key={index}
     imageSrc={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-    title={item.name}
-    year={item.first_air_date}
+    title={item.title}
+    year={item.release_date}
   />
 );
 
@@ -43,10 +43,10 @@ Home.getLayout = function getLayout(page) {
 
 Home.getInitialProps = async () => {
   const beanContainer = new BeanContainerRegistry().getBeanContainer();
-  const getTvShowsOnTheAirResponse =
-    await beanContainer.getTvShowsOnTheAirUseCase.execute();
+  const getTrendingUseCaseResponse =
+    await beanContainer.getTrendingUseCase.execute();
   return {
-    data: getTvShowsOnTheAirResponse?.data,
+    data: getTrendingUseCaseResponse?.data,
   };
 };
 
@@ -57,10 +57,10 @@ Home.propTypes = {
     results: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
         poster_path: PropTypes.string.isRequired,
         overview: PropTypes.string.isRequired,
-        first_air_date: PropTypes.string.isRequired,
+        release_date: PropTypes.string.isRequired,
       })
     ).isRequired,
   }).isRequired,
