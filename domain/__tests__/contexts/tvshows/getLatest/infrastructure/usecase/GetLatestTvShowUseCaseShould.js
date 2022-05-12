@@ -1,5 +1,5 @@
-import { BeanContainerRegistry } from "../../../../../../BeanContainerRegistry";
-import { GetLatestTvShowRepository } from "../../../../../../contexts/tvshows/getLatest/infrastructure/repository/GetLatestTvShowRepository";
+import { BeanContainerRegistry } from "@/domain/BeanContainerRegistry";
+import { GetLatestTvShowRepository } from "@/domain/contexts/tvshows/getLatest/infrastructure/repository/GetLatestTvShowRepository";
 import * as mockTvShowLatest from "./mockTvShowLatest.json" assert { type: "json" };
 
 console.log("welcome! GetTvShowsVideosController test");

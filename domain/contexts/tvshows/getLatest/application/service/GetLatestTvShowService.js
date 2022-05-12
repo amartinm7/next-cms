@@ -1,4 +1,3 @@
-import { GetLatestTvShowRepositoryRequest } from "../../infrastructure/repository/GetLatestTvShowRepository";
 /* eslint-disable camelcase, no-console */
 class GetLatestTvShowService {
   constructor({ getLatestTvShowRepository }) {
