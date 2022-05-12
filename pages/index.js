@@ -2,6 +2,7 @@ import Layout from "../components/layout/layout.js";
 import Card from "../components/card/card.js";
 import styles from "./index.module.scss";
 import Menu from "../components/menu/menu.js";
+import { BeanContainerRegistry } from "../domain/BeanContainerRegistry";
 
 const cardInfo = {
   imageSrc: "https://image.tmdb.org/t/p/w500/1HXBUVLacdJhJz0rYGz71qrczMM.jpg",
@@ -18,11 +19,12 @@ const movie = (index) => (
   />
 );
 
-export default function Home() {
+const Home = ({ latestTvShowUseCaseResponse }) => {
   return (
     <>
       <Menu></Menu>
       {/*<section className={styles["ech-hero"]}></section>*/}
+      <h3>{latestTvShowUseCaseResponse}</h3>
       <section className={styles["ech-container"]}>
         This example adds a property <code>getLayout</code> to your page,
         allowing you to return a React component for the layout.
@@ -32,8 +34,19 @@ export default function Home() {
       </section>
     </>
   );
-}
+};
 
 Home.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
 };
+
+Home.getInitialProps = async () => {
+  const beanContainer = new BeanContainerRegistry().getBeanContainer();
+  const latestTvShowUseCaseResponse =
+    await beanContainer.getLatestTvShowUseCase.execute();
+  return {
+    latestTvShowUseCaseResponse,
+  };
+};
+
+export default Home;
