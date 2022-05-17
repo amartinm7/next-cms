@@ -1,5 +1,5 @@
-import Layout from "../components/layout/layout.js";
-import Sidebar from "../components/layout/sideBar.js";
+import Layout from "@/components/layout/layout";
+import Sidebar from "@/components/layout/sideBar";
 
 export default function Contact() {
   return (

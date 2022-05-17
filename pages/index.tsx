@@ -1,9 +1,11 @@
-import Layout from "../components/layout/layout.js";
-import Card from "../components/card/card.js";
+import Layout from "@/components/layout/layout";
+import Card from "../components/card/card";
 import styles from "./index.module.scss";
-import Menu from "../components/menu/menu.js";
+import Menu from "../components/menu/menu";
 import { BeanContainerRegistry } from "@/domain/BeanContainerRegistry";
 import PropTypes from "prop-types";
+import { GetServerSideProps } from "next";
+import { Context } from "react";
 
 const getMovieCard = ({ item, index }) => (
   <Card
@@ -35,12 +37,18 @@ Home.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
 };
 
-Home.getInitialProps = async () => {
+// @ts-ignore
+export const getServerSideProps: GetServerSideProps<Context<string>> = async (
+  context
+) => {
   const beanContainer = new BeanContainerRegistry().getBeanContainer();
-  const getTrendingUseCaseResponse =
-    await beanContainer.getTrendingUseCase.execute();
+  const getTrendingUseCaseResponse = await beanContainer[
+    "getTrendingUseCase"
+  ].execute();
   return {
-    data: getTrendingUseCaseResponse?.data,
+    props: {
+      data: getTrendingUseCaseResponse?.data,
+    },
   };
 };
 

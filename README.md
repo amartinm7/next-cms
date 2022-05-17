@@ -1,5 +1,9 @@
 This is a starter template for [Learn Next.js](https://nextjs.org/learn).
 
+### for killing executions
+```bash
+killall -9 node
+```
 ### Create next-js app from the scratch on vercel using a nextjs template
 https://vercel.com/new/clone
 
