@@ -1,10 +1,19 @@
 import nc from "next-connect";
+import { BeanContainerRegistry } from "@/domain/BeanContainerRegistry";
 
 const users = [{ id: 1 }, { id: 2 }, { id: 3 }];
 
 function someMiddleware() {
   return {};
 }
+
+export const getTrendingMovies = async () => {
+  const beanContainer = new BeanContainerRegistry().getBeanContainer();
+  const getTrendingUseCaseResponse = await beanContainer[
+    "getTrendingUseCase"
+  ].execute();
+  return getTrendingUseCaseResponse?.data;
+};
 
 const handler = nc({
   onError: (err, req, res, next) => {
@@ -16,11 +25,13 @@ const handler = nc({
   },
 })
   // .use(someMiddleware())
-  .get((req, res) => {
-    res.send("Hello world");
+  .get(async (req, res) => {
+    const trendingMovies = await getTrendingMovies();
+    res.json(trendingMovies);
   })
-  .post((req, res) => {
-    res.json({ hello: "world" });
+  .post(async (req, res) => {
+    const trendingMovies = await getTrendingMovies();
+    res.send("Not implemented yet!!");
   })
   .put(async (req, res) => {
     res.end("async/await is also supported!");

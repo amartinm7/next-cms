@@ -1,8 +1,8 @@
 import Layout from "@/components/layout/layout";
-import Card from "../components/card/card";
+import Card from "@/components/card/card";
+import { getTrendingMovies } from "@/pages/api/movies/trending";
 import styles from "./index.module.scss";
-import Menu from "../components/menu/menu";
-import { BeanContainerRegistry } from "@/domain/BeanContainerRegistry";
+import Menu from "@/components/menu/menu";
 import PropTypes from "prop-types";
 import { GetServerSideProps } from "next";
 import { Context } from "react";
@@ -41,13 +41,10 @@ Home.getLayout = function getLayout(page) {
 export const getServerSideProps: GetServerSideProps<Context<string>> = async (
   context
 ) => {
-  const beanContainer = new BeanContainerRegistry().getBeanContainer();
-  const getTrendingUseCaseResponse = await beanContainer[
-    "getTrendingUseCase"
-  ].execute();
+  const trendingMovies = await getTrendingMovies();
   return {
     props: {
-      data: getTrendingUseCaseResponse?.data,
+      data: trendingMovies,
     },
   };
 };
