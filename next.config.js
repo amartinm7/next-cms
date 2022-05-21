@@ -13,7 +13,7 @@
 const nextConfig = {
   /* config options here */
   images: {
-    domains: ["image.tmdb.org", "fonts.googleapis.com", "th.bing.com"],
+    domains: ["image.tmdb.org", "fonts.googleapis.com"],
   },
   // typescript: {
   //   // !! WARN !!
