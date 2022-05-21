@@ -4,8 +4,12 @@ class GetTrendingService {
     this._getTrendingRepository = getTrendingRepository;
   }
 
-  async execute({ language }) {
-    return await this._getTrendingRepository.execute({ language });
+  async execute({ resource, period, language }) {
+    return await this._getTrendingRepository.execute({
+      resource,
+      period,
+      language,
+    });
   }
 }
 
