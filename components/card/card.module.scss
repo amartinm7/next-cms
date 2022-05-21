@@ -7,3 +7,11 @@
 .ech-year {
   margin-right: .25em;
 }
+
+.ech-play {
+  transition: transform .7s ease-in-out;
+  &:hover{
+    transform: rotate(360deg);
+  }
+}
+

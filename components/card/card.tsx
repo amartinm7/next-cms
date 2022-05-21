@@ -10,7 +10,7 @@ const Card = ({ imageSrc, title, year }) => {
         <h2>{title}</h2>
         <p>
           <span className={styles["ech-year"]}>{year}</span>
-          <i className="fa-regular fa-circle-play"></i>
+          <i className={`${styles["ech-play"]} fa-regular fa-circle-play`}></i>
         </p>
       </footer>
     </article>
