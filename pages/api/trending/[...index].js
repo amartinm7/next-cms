@@ -7,7 +7,7 @@ function someMiddleware() {
   return {};
 }
 
-export const getTrendingMovies = async (request) => {
+export const getTrending = async (request) => {
   const beanContainer = new BeanContainerRegistry().getBeanContainer();
   const getTrendingUseCaseResponse = await beanContainer[
     "getTrendingUseCase"
@@ -26,13 +26,10 @@ const handler = nc({
 })
   // .use(someMiddleware())
   .get(async (req, res) => {
-    console.log("request", req);
-    console.log("request", req.query.index);
-    const trendingMovies = await getTrendingMovies(req.query.index);
+    const trendingMovies = await getTrending(req.query.index);
     res.json(trendingMovies);
   })
   .post(async (req, res) => {
-    const trendingMovies = await getTrendingMovies();
     res.send("Not implemented yet!!");
   })
   .put(async (req, res) => {

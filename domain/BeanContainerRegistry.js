@@ -3,6 +3,7 @@ import { GetLatestTvShowProvider } from "./contexts/tvshows/getLatest/GetLatestT
 import { GetTvShowsOnTheAirProvider } from "./contexts/tvshows/getOnTheAir/GetTvShowsOnTheAirProvider";
 import { GetConfigurationProvider } from "./helpers/config/GetConfigurationProvider";
 import { GetTrendingProvider } from "@/domain/contexts/trending/getTrending/GetTrendingProvider";
+import { GetMovieDetailsProvider } from "@/domain/contexts/movies/getMovieDetails/GetMovieDetailsProvider";
 
 class BeanContainerRegistry {
   constructor() {
@@ -11,6 +12,7 @@ class BeanContainerRegistry {
     new GetLatestTvShowProvider(this._beanContainer);
     new GetTvShowsOnTheAirProvider(this._beanContainer);
     new GetTrendingProvider(this._beanContainer);
+    new GetMovieDetailsProvider(this._beanContainer);
   }
 
   getBeanContainer() {

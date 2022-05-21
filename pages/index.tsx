@@ -1,6 +1,6 @@
 import Layout from "@/components/layout/layout";
 import Card from "@/components/card/card";
-import { getTrendingMovies } from "@/pages/api/movies/trending";
+import { getTrending } from "@/pages/api/trending/[...index].js";
 import styles from "./index.module.scss";
 import Menu from "@/components/menu/menu";
 import PropTypes from "prop-types";
@@ -41,7 +41,7 @@ Home.getLayout = function getLayout(page) {
 export const getServerSideProps: GetServerSideProps<Context<string>> = async (
   context
 ) => {
-  const trendingMovies = await getTrendingMovies();
+  const trendingMovies = await getTrending(["movies", "week"]);
   return {
     props: {
       data: trendingMovies,

@@ -4,7 +4,7 @@ import * as mockTrendingMoviesResponse from "./mockTrendingMoviesResponse.json" 
 import * as mockTrendingPersonsResponse from "./mockTrendingPersonsResponse.json" assert { type: "json" };
 import * as mockTrendingTvShowsResponse from "./mockTrendingTvShowsResponse.json" assert { type: "json" };
 
-import { GetTrendingRepository } from "@/domain/contexts/trending/getTrending/infrastructure/respository/GetTrendingRepository";
+import { GetTrendingRepository } from "@/domain/contexts/trending/getTrending/infrastructure/repository/GetTrendingRepository";
 
 console.log("welcome! GetTrendingUseCaseShould test");
 
