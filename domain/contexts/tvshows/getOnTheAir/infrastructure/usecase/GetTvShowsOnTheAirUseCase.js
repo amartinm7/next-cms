@@ -4,8 +4,8 @@ class GetTvShowsOnTheAirUseCase {
     this._getTvShowsOnTheAirService = getTvShowsOnTheAirService;
   }
 
-  async execute() {
-    return this._getTvShowsOnTheAirService.execute({ language: "es-ES" });
+  async execute({ language = "es-ES" }) {
+    return this._getTvShowsOnTheAirService.execute({ language });
   }
 }
 

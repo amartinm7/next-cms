@@ -7,12 +7,12 @@ function someMiddleware() {
   return {};
 }
 
-export const getMovieDetails = async ({ id, language }) => {
+export const getTvShowsOnTheAir = async ({ language }) => {
   const beanContainer = new BeanContainerRegistry().getBeanContainer();
-  const getMovieDetailsUseCaseResponse = await beanContainer[
-    "getMovieDetailsUseCase"
-  ].execute({ id, language });
-  return getMovieDetailsUseCaseResponse?.data;
+  const getTvShowsOnTheAirUseCaseResponse = await beanContainer[
+    "getTvShowsOnTheAirUseCase"
+  ].execute({ language });
+  return getTvShowsOnTheAirUseCaseResponse?.data;
 };
 
 const handler = nc({
@@ -26,8 +26,8 @@ const handler = nc({
 })
   // .use(someMiddleware())
   .get(async (req, res) => {
-    const movieDetails = await getMovieDetails({ ...req.query });
-    res.json(movieDetails);
+    const tvShowsOnTheAir = await getTvShowsOnTheAir({ ...req.query });
+    res.json(tvShowsOnTheAir);
   })
   .post(async (req, res) => {
     res.send("Not implemented yet!!");

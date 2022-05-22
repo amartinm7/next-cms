@@ -11,7 +11,9 @@ describe("GetTvShowsOnTheAirUseCaseShould", function () {
     GetTvShowsOnTheAirRepository.prototype.execute = mockRepository;
     mockRepository.mockReturnValue(Promise.resolve(mockResponse));
     it("should return the on the air tv shows", async function () {
-      const result = await beanContainer.getTvShowsOnTheAirUseCase.execute();
+      const result = await beanContainer.getTvShowsOnTheAirUseCase.execute({
+        language: "es-ES",
+      });
       expect(mockResponse).toEqual(result);
     });
   });

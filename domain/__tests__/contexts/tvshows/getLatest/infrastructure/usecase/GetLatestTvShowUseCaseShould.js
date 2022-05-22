@@ -11,7 +11,9 @@ describe("GetLatestTvShowUseCaseShould", function () {
     GetLatestTvShowRepository.prototype.execute = mockRepository;
     mockRepository.mockReturnValue(Promise.resolve(mockResponse));
     it("should return the lastest tv show", async function () {
-      const result = await beanContainer.getLatestTvShowUseCase.execute();
+      const result = await beanContainer.getLatestTvShowUseCase.execute({
+        language: "es-ES",
+      });
       expect(mockResponse).toEqual(result);
     });
   });

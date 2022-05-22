@@ -4,8 +4,8 @@ class GetLatestTvShowUseCase {
     this._getLatestTvShowService = getLatestTvShowService;
   }
 
-  async execute() {
-    return this._getLatestTvShowService.execute({ language: "es-ES" });
+  async execute({ language = "es-ES" }) {
+    return this._getLatestTvShowService.execute({ language });
   }
 }
 
