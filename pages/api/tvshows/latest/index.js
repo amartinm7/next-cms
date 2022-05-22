@@ -1,12 +1,6 @@
 import nc from "next-connect";
 import { BeanContainerRegistry } from "@/domain/BeanContainerRegistry";
 
-const users = [{ id: 1 }, { id: 2 }, { id: 3 }];
-
-function someMiddleware() {
-  return {};
-}
-
 export const getLatestTvShow = async ({ language }) => {
   const beanContainer = new BeanContainerRegistry().getBeanContainer();
   const getLatestTvShowUseCaseResponse = await beanContainer[
