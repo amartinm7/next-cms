@@ -7,11 +7,33 @@ function someMiddleware() {
   return {};
 }
 
-export const getTrending = async (request) => {
+const DEFAULT_RESOURCE = "all";
+const DEFAULT_PERIOD = "week";
+
+const validRoutesByResource = {
+  movies: "movie",
+  tvshows: "tv",
+  persons: "person",
+  all: DEFAULT_RESOURCE,
+};
+
+const validRoutesByPeriod = [DEFAULT_PERIOD, "day"];
+
+const getResourceQueryParam = (request) => {
+  const path = request && request[0];
+  return validRoutesByResource[path] ?? DEFAULT_RESOURCE;
+};
+
+const getPeriodQueryParam = (request) => {
+  const period = request && request[1];
+  return validRoutesByPeriod.includes(period) ? period : DEFAULT_PERIOD;
+};
+
+export const getTrending = async ({ resource, period, language }) => {
   const beanContainer = new BeanContainerRegistry().getBeanContainer();
   const getTrendingUseCaseResponse = await beanContainer[
     "getTrendingUseCase"
-  ].execute(request);
+  ].execute({ resource, period, language });
   return getTrendingUseCaseResponse?.data;
 };
 
@@ -26,7 +48,10 @@ const handler = nc({
 })
   // .use(someMiddleware())
   .get(async (req, res) => {
-    const trendingMovies = await getTrending(req.query.index);
+    const resource = getResourceQueryParam(req.query.index);
+    const period = getPeriodQueryParam(req.query.index);
+    const language = req.query.language;
+    const trendingMovies = await getTrending({ resource, period, language });
     res.json(trendingMovies);
   })
   .post(async (req, res) => {

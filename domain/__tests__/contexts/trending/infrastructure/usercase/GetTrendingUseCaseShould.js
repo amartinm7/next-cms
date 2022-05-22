@@ -15,14 +15,15 @@ describe("GetTrendingUseCaseShould", function () {
     GetTrendingRepository.prototype.execute = mockRepository;
     it("should return the trending all", async function () {
       mockRepository.mockReturnValue(Promise.resolve(mockTrendingAllResponse));
-      const result = await beanContainer.getTrendingUseCase.execute();
+      const request = { resource: "all", period: "week", language: "es-ES" };
+      const result = await beanContainer.getTrendingUseCase.execute(request);
       expect(mockTrendingAllResponse).toEqual(result);
     });
     it("should return the trending movies", async function () {
       mockRepository.mockReturnValue(
         Promise.resolve(mockTrendingMoviesResponse)
       );
-      const request = ["movies", "week"];
+      const request = { resource: "movies", period: "week", language: "es-ES" };
       const result = await beanContainer.getTrendingUseCase.execute(request);
       expect(mockTrendingMoviesResponse).toEqual(result);
     });
@@ -30,7 +31,11 @@ describe("GetTrendingUseCaseShould", function () {
       mockRepository.mockReturnValue(
         Promise.resolve(mockTrendingPersonsResponse)
       );
-      const request = ["persons", "week"];
+      const request = {
+        resource: "persons",
+        period: "week",
+        language: "es-ES",
+      };
       const result = await beanContainer.getTrendingUseCase.execute(request);
       expect(mockTrendingPersonsResponse).toEqual(result);
     });
@@ -38,7 +43,11 @@ describe("GetTrendingUseCaseShould", function () {
       mockRepository.mockReturnValue(
         Promise.resolve(mockTrendingTvShowsResponse)
       );
-      const request = ["persons", "week"];
+      const request = {
+        resource: "tvshows",
+        period: "week",
+        language: "es-ES",
+      };
       const result = await beanContainer.getTrendingUseCase.execute(request);
       expect(mockTrendingTvShowsResponse).toEqual(result);
     });
