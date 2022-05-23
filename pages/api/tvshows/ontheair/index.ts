@@ -1,5 +1,6 @@
 import nc from "next-connect";
 import { BeanContainerRegistry } from "@/domain/BeanContainerRegistry";
+import { NextApiRequest, NextApiResponse } from "next";
 
 export const getTvShowsOnTheAir = async ({ language }) => {
   const beanContainer = new BeanContainerRegistry().getBeanContainer();
@@ -9,7 +10,7 @@ export const getTvShowsOnTheAir = async ({ language }) => {
   return getTvShowsOnTheAirUseCaseResponse?.data;
 };
 
-const handler = nc({
+const handler = nc<NextApiRequest, NextApiResponse>({
   onError: (err, req, res, next) => {
     console.error(err.stack);
     res.status(500).end("Something broke!");
@@ -20,7 +21,9 @@ const handler = nc({
 })
   // .use(someMiddleware())
   .get(async (req, res) => {
-    const tvShowsOnTheAir = await getTvShowsOnTheAir({ ...req.query });
+    const tvShowsOnTheAir = await getTvShowsOnTheAir({
+      language: req.query.language,
+    });
     res.json(tvShowsOnTheAir);
   })
   .post(async (req, res) => {

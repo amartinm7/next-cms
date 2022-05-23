@@ -1,6 +1,6 @@
 import Layout from "@/components/layout/layout";
 import Card from "@/components/card/card";
-import { getTrending } from "@/pages/api/trending/[...index]";
+import { getTvShowsOnTheAir } from "@/pages/api/tvshows/ontheair";
 import styles from "./index.module.scss";
 import Menu from "@/components/menu/menu";
 import PropTypes from "prop-types";
@@ -12,24 +12,24 @@ const getMovieCard = ({ item, index }) => (
   <Card
     key={index}
     imageSrc={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-    title={item.title}
-    year={item.release_date}
+    title={item.name}
+    year={item.first_air_date}
   />
 );
 
-const Home = ({ data }) => {
+const OnTheAir = ({ data }) => {
   return (
     <>
       <Menu></Menu>
       {/*<section className={styles["ech-hero"]}></section>*/}
-      <h3>Trending movies</h3>
+      <h3>TvShows On the air</h3>
       <Link
         href={{
-          pathname: "/tvshows/ontheair",
+          pathname: "/tvshows/airingToday",
           query: { language: "es-ES" },
         }}
       >
-        <a>tv shows on the air</a>
+        <a>airing today tv shows</a>
       </Link>
       <section className={styles["ech-container"]}>
         This example adds a property <code>getLayout</code> to your page,
@@ -42,7 +42,7 @@ const Home = ({ data }) => {
   );
 };
 
-Home.getLayout = function getLayout(page) {
+OnTheAir.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
 };
 
@@ -50,20 +50,18 @@ Home.getLayout = function getLayout(page) {
 export const getServerSideProps: GetServerSideProps<Context<string>> = async (
   context
 ) => {
-  const trendingMovies = await getTrending({
-    resource: "movies",
-    period: "week",
+  const tvshows = await getTvShowsOnTheAir({
     language: "es-ES",
   });
   return {
     props: {
-      data: trendingMovies,
+      data: tvshows,
     },
   };
 };
 
-Home.displayName = "Home";
-Home.propTypes = {
+OnTheAir.displayName = "Home";
+OnTheAir.propTypes = {
   data: PropTypes.shape({
     page: PropTypes.number.isRequired,
     results: PropTypes.arrayOf(
@@ -78,4 +76,4 @@ Home.propTypes = {
   }).isRequired,
 };
 
-export default Home;
+export default OnTheAir;

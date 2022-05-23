@@ -1,6 +1,6 @@
 import Layout from "@/components/layout/layout";
 import Card from "@/components/card/card";
-import { getTrending } from "@/pages/api/trending/[...index]";
+import { getLatestTvShow } from "@/pages/api/tvshows/latest";
 import styles from "./index.module.scss";
 import Menu from "@/components/menu/menu";
 import PropTypes from "prop-types";
@@ -12,17 +12,17 @@ const getMovieCard = ({ item, index }) => (
   <Card
     key={index}
     imageSrc={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-    title={item.title}
-    year={item.release_date}
+    title={item.name}
+    year={item.first_air_date}
   />
 );
 
-const Home = ({ data }) => {
+const LatestTvShows = ({ data }) => {
   return (
     <>
       <Menu></Menu>
       {/*<section className={styles["ech-hero"]}></section>*/}
-      <h3>Trending movies</h3>
+      <h3>Latest TvShows</h3>
       <Link
         href={{
           pathname: "/tvshows/ontheair",
@@ -42,7 +42,7 @@ const Home = ({ data }) => {
   );
 };
 
-Home.getLayout = function getLayout(page) {
+LatestTvShows.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
 };
 
@@ -50,20 +50,18 @@ Home.getLayout = function getLayout(page) {
 export const getServerSideProps: GetServerSideProps<Context<string>> = async (
   context
 ) => {
-  const trendingMovies = await getTrending({
-    resource: "movies",
-    period: "week",
+  const tvshows = await getLatestTvShow({
     language: "es-ES",
   });
   return {
     props: {
-      data: trendingMovies,
+      data: tvshows,
     },
   };
 };
 
-Home.displayName = "Home";
-Home.propTypes = {
+LatestTvShows.displayName = "Home";
+LatestTvShows.propTypes = {
   data: PropTypes.shape({
     page: PropTypes.number.isRequired,
     results: PropTypes.arrayOf(
@@ -78,4 +76,4 @@ Home.propTypes = {
   }).isRequired,
 };
 
-export default Home;
+export default LatestTvShows;
