@@ -1,6 +1,6 @@
 # Prettier and linter
 
-1.-Follow the isntructions https://nextjs.org/docs/basic-features/eslint
+1.-Follow the instructions https://nextjs.org/docs/basic-features/eslint
 2.-Setup the package.json
 ```json
 "scripts": {
